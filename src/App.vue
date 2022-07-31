@@ -1,8 +1,10 @@
 <template>
   <!--strong>{{info}}</strong-->
   <!--chart v-bind:chartData="info"/-->  
-  <chart v-bind:chartData="info"/>  
-  <todo v-bind:todos="make_dataset(info)"/>
+  <!--chart v-bind:chartData="info"/-->  
+  <chart v-if="info != null" v-bind:chartData="make_dataset(info)"/>  
+  <!--todo v-bind:todos="make_dataset(info)"/-->
+  <!--todo v-bind:todos="make_dataset(info)"/-->
 </template>
 
 <script>
@@ -24,8 +26,56 @@ export default {
     }
   },
  methods: {
-    make_dataset($json){
-      return $json
+    make_dataset(json){
+
+if(json != null){
+
+json = Object.entries(json)
+//  alert(json)
+
+var labels = json.map(function(e) {
+e = Object.entries(e)  
+//  alert(e[1][1].date)
+   return e[1][1].date;
+});
+var data = json.map(function(e) {
+e = Object.entries(e)  
+//  alert(e[1][1].date)
+   return e[1][1].sum;
+});
+
+/*
+var config = {
+   type: 'bar',
+   data: {
+      labels: labels,
+      datasets: [{
+         label: 'Graph Line',
+         data: data,
+         backgroundColor: 'rgba(0, 119, 204, 0.3)'
+      }]
+   }
+};*/
+var config = {
+   chartData: {
+      labels: labels,
+      datasets: [{
+         label: 'Graph Line',
+         data: data
+      }]
+   },
+   chartOptions: {
+        type: 'bar',
+        responsive: false,
+        maintainAspectRatio: false
+      }
+};
+
+
+
+}
+
+      return config
     }
   },
   mounted() {

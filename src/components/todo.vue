@@ -8,10 +8,10 @@
       v-bind:todo="todo" 
     /-->
 
-    <li>{{todo.date}} -- {{todo.sum}}</li>
+    <!--li>{{todo.date}} -- {{todo.sum}}</li-->
   </ul>
     <strong>{{info}}</strong>
-   <strong>{{todo}}</strong>
+   <strong>{{todos}}</strong>
 
 </div>
 </template>
