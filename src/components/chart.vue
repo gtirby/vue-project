@@ -55,9 +55,9 @@ export default {
   components: {
     Bar
   },
-  data (){
+ /* data (){
     return{ "chartData": { "labels": [ "2022-06-07"], "datasets": [ { "label": "Graph Line", "data": [ "67804"] } ] }, "chartOptions": { "type": "bar", "responsive": false, "maintainAspectRatio": false } }
-  },
+  },*/
   methods: {
     fill_info(chartData){
       this.info=this.info+1;

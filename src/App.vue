@@ -57,13 +57,13 @@ var config = {
    }
 };*/
 var config = {
-   chartData: {
+//   chartData: {
       labels: labels,
       datasets: [{
          label: 'Graph Line',
          data: data
-      }]
-   },
+      }],
+//   },
    chartOptions: {
         type: 'bar',
         responsive: false,
